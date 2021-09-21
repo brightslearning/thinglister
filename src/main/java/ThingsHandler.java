@@ -14,10 +14,10 @@ public class ThingsHandler implements LineHandler {
         try {
             switch (type) {
                 case "dogs":
-                    fileParser.parseDogs("src/main/resources/" + file);
+                    fileParser.parse("src/main/resources/" + file, new DogHandler());
                     break;
                 case "people":
-                    fileParser.parsePeople("src/main/resources/" + file);
+                    fileParser.parse("src/main/resources/" + file, new PeopleHandler());
                     break;
             }
         } catch (Exception e) {
