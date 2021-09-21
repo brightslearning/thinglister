@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,6 +26,14 @@ public class ThingsHandler implements LineHandler {
             fileParser.parse(file, lineHandlers.get(type));
         } catch (Exception e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public void handleThings(String filename) throws IOException {
+        var reader = new BufferedReader(new FileReader(filename));
+        String line;
+        while((line = reader.readLine())!= null) {
+            handleLine(line);
         }
     }
 }
