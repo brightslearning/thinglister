@@ -13,8 +13,9 @@ public class ThingsHandler implements LineHandler {
         this.fileParser = fileParser;
     }
 
-    public void addHandler(String type, LineHandler lineHandler) {
+    public ThingsHandler addHandler(String type, LineHandler lineHandler) {
         lineHandlers.put(type, lineHandler);
+        return this;
     }
 
     @Override
