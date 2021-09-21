@@ -20,7 +20,7 @@ public class ThingsHandler implements LineHandler {
         String type = split[0];
         String file = split[1];
         try {
-            fileParser.parse("src/main/resources/" + file, lineHandlers.get(type));
+            fileParser.parse(file, lineHandlers.get(type));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
