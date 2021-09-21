@@ -6,7 +6,9 @@ public class ThingLister {
     void run(String filename) throws Exception {
         var reader = new BufferedReader(new FileReader(filename));
         String line;
-        LineHandler lineHandler = new ThingsHandler(new FileParser());
+        ThingsHandler lineHandler = new ThingsHandler(new FileParser());
+        lineHandler.addHandler("dogs", new DogHandler());
+        lineHandler.addHandler("people", new PeopleHandler());
         while((line = reader.readLine())!= null) {
             lineHandler.handleLine(line);
         }

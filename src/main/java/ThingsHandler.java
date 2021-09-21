@@ -8,8 +8,10 @@ public class ThingsHandler implements LineHandler {
 
     public ThingsHandler(FileParser fileParser) {
         this.fileParser = fileParser;
-        lineHandlers.put("dogs", new DogHandler());
-        lineHandlers.put("people", new PeopleHandler());
+    }
+
+    public void addHandler(String type, LineHandler lineHandler) {
+        lineHandlers.put(type, lineHandler);
     }
 
     @Override
